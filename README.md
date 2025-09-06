@@ -1,82 +1,115 @@
-CareerAi 🤖🌐
+Get free private DeepWikis in Devin
+DeepWiki
+Denis-ctr/CareerAi-bot
 
 
+Share
 
-CareerAi is an intelligent Telegram bot designed to provide personalized career guidance, roadmap planning, and skill-based recommendations. It helps students and professionals make informed decisions about their career paths by analyzing their skills, interests, and goals, delivering tailored recommendations.
+Menu
+Overview
+Relevant source files
+Purpose and Scope
+This document provides a high-level introduction to the CareerAI bot system, a Telegram-based career advisory service that leverages artificial intelligence to provide personalized career guidance. The overview covers the system's core purpose, architecture, key components, and user interaction patterns.
 
+For detailed implementation specifics, see Core Implementation. For setup and deployment instructions, see Getting Started. For architectural deep-dive, see System Architecture.
 
----
+System Overview
+CareerAI is an intelligent Telegram bot built in Python that provides personalized career guidance through conversational AI. The system integrates Google's Gemini AI model with a multi-language Telegram interface, storing user preferences and session data in SQLite. The bot supports both Azerbaijani and English languages, offering tailored career roadmaps and skill-based recommendations.
 
-🔹 Features
+The primary entry point is main.py, which orchestrates all bot functionality including user management, AI integration, and database operations. The system implements an asynchronous architecture using aiogram for Telegram API interactions and aiosqlite for database operations.
 
-Personalized Career Advice: Get recommendations based on your skills, interests, and career goals.
+Sources: 
+README.md
+1-83
 
-Roadmap Generator: Automatically generates a step-by-step roadmap for your chosen career path.
-
-Multi-Language Support: Interact in Azerbaijani or English for wider accessibility.
-
-Interactive Telegram Interface: Simple and user-friendly interface for seamless communication.
-
-Extensible & Scalable: Easy to add new features, languages, or integrations.
-
-
-
----
-
-🔹 How to Use
-
-1. Open the bot: CareerAi on Telegram
-
-
-2. Start the bot with /start.
-
-
-3. Choose your preferred language.
-
-
-4. Follow prompts to receive personalized career guidance and roadmap recommendations.
+High-Level System Architecture
+System Architecture Overview
 
 
 
 
----
-
-🔹 Technical Details
-
-Language: Python
-
-Platform: Telegram Bot API
-
-Design: Modular and scalable for easy feature additions
-
-Focused on providing actionable insights rather than generic advice
 
 
 
----
-
-🔹 Contribution
-
-Contributions are welcome! You can help by:
-
-Adding new features
-
-Improving language support
-
-Enhancing roadmap recommendations
-
-Reporting bugs or issues
 
 
 
----
-
-🔹 License
-
-This project is licensed under the MIT License.
 
 
----
 
-✅ Try the bot now: https://t.me/careeraiaibot
 
+
+
+
+
+
+
+
+
+Sources: System architecture diagrams provided in context, 
+main.py
+1-200
+ (inferred from importance score)
+
+Key System Components
+Component	Purpose	Implementation
+Bot Orchestration	Main application entry point and event loop management	main.py with aiogram.Bot and Dispatcher
+User State Management	Track user language preferences and registration status	SQLite database with init_db(), set_user(), get_user() functions
+Multi-language Support	Handle Azerbaijani and English interactions	Dynamic prompt construction based on user language preference
+AI Integration	Generate personalized career advice	Google Gemini API through google-generativeai library
+Message Processing	Handle Telegram message size limits	split_message() function for chunking responses
+User Interface	Telegram bot commands and callback handling	start_handler(), lang_handler(), message_handler()
+Sources: 
+README.md
+10-21
+ 
+main.py
+1-200
+ (inferred from system diagrams)
+
+User Interaction Flow
+Bot User Flow
+
+Sources: System flow diagrams provided in context, 
+main.py
+1-200
+ (inferred from handler functions)
+
+Technology Stack
+The CareerAI bot system is built on the following technology foundation:
+
+Core Framework
+Python: Primary programming language with async/await support
+aiogram 3.x: Telegram Bot API framework for handling bot interactions
+asyncio: Asynchronous programming support for concurrent operations
+AI and External Services
+google-generativeai: Google Gemini AI model integration for content generation
+Telegram Bot API: Primary user interface and communication channel
+Data Persistence
+aiosqlite: Asynchronous SQLite database operations
+SQLite: User profile and session data storage
+Key Features Implementation
+Multi-language Support: Dynamic prompt generation for Azerbaijani (lang_az) and English (lang_en)
+Message Chunking: Automatic response splitting to handle Telegram's message size limits
+State Management: User progression tracking from language selection to active career counseling
+Asynchronous Architecture: Non-blocking operations for scalable user handling
+Sources: 
+README.md
+44-52
+ dependencies inferred from system architecture diagrams
+
+System Capabilities
+The CareerAI bot provides the following core capabilities:
+
+Personalized Career Guidance: AI-generated advice based on user skills, interests, and goals
+Career Roadmap Generation: Step-by-step career path planning with actionable recommendations
+Multi-language Interaction: Native support for Azerbaijani and English languages
+User Session Management: Persistent user profiles and preference storage
+Scalable Architecture: Asynchronous design supporting concurrent user interactions
+Telegram Integration: Native bot interface with inline keyboards and callback handling
+Sources: 
+README.md
+10-21
+ 
+README.md
+26-38
