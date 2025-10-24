@@ -4,6 +4,8 @@ CareerAi 🤖🌐
 
 CareerAi is an intelligent Telegram bot designed to provide personalized career guidance, roadmap planning, and skill-based recommendations. It helps students and professionals make informed decisions about their career paths by analyzing their skills, interests, and goals, delivering tailored recommendations.
 
+![license](https://img.shields.io/badge/license-MIT-red)
+
 
 ---
 
